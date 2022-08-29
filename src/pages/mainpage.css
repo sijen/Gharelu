@@ -1,0 +1,132 @@
+* {
+  font-family: "Calibri";
+  font-style: normal;
+}
+.main-slide {
+  width: 736px;
+  height: 50vh;
+}
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.title-border {
+  position: relative;
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.title-border h1 {
+  background-color: #fff;
+  padding-right: 1rem;
+  display: inline-block;
+  font-weight: bold;
+}
+.title-border::after {
+  transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  right: 0px;
+  background-color: #dac6c6;
+  z-index: -1;
+}
+.best-title > h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 49px;
+  color: #9d3a3a;
+}
+.best-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card {
+  border: none;
+  box-shadow: 0px 0px 2px grey;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.rounded-pill {
+  position: absolute;
+  width: max-content;
+  top: 10px;
+  left: 10px;
+  border-radius: 5px !important;
+}
+.card-title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+}
+.h5 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+.num-detail {
+  display: flex;
+  justify-content: space-between;
+
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
+.card-owner {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 10px 1rem;
+  background-color: #0d6efd;
+  border-bottom-left-radius: 0.375rem;
+  border-bottom-right-radius: 0.375rem;
+  color: white;
+}
+.owner {
+  margin: 10px 20px;
+}
+.property-location {
+  margin: 10px 0px;
+}
+.property-location > h4 {
+  height: max-content;
+  width: max-content;
+  display: inline;
+  margin: 0px 10px 0px 0px;
+}
+.property-location > .btn-light {
+  margin: 0px 10px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 58% !important;
+  width: calc(var(--swiper-navigation-size) / 44 * 27);
+  height: var(--swiper-navigation-size);
+  margin-top: calc(0px - (var(--swiper-navigation-size) / 2));
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000 !important;
+}
+:root {
+  --swiper-navigation-size: 20px !important;
+}
+/* responsive */
+@media only screen and (max-width: 1200px) {
+  .card {
+    margin-bottom: 10px;
+  }
+  .card-img-top {
+    height: 100px;
+  }
+}

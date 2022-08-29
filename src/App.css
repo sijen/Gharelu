@@ -1,0 +1,103 @@
+.navbar {
+  width: "100%";
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  font-family: "Calibri";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: black;
+  bottom: -5px;
+  left: 0;
+  right: 10px;
+}
+.logo {
+  height: 50px;
+}
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0px;
+}
+.list li {
+  position: relative;
+}
+.listItem {
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+.avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.input,
+.button {
+  padding: 10px;
+  font-size: larger;
+  margin-bottom: 10px;
+}
+.input {
+  display: block;
+}
+.home {
+  padding: 50px;
+  width: 70%;
+  height: 300px;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: lightgray 0px 0px 2px 1px;
+  border-radius: 20px;
+}
+.overflow_body {
+  overflow-y: hidden;
+}
+.none_overflow_body {
+  overflow: scroll;
+}
+#user {
+  position: relative;
+  cursor: pointer;
+}
+.profileshow {
+  position: absolute;
+  height: max-content;
+  width: 300px;
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 0px gray;
+  top: 50px;
+  right: 40px;
+  z-index: 10000;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.r {
+  margin: 0px;
+  padding: 0px;
+}
+.profile {
+  border-radius: 10px;
+  padding: 10px 30px;
+  width: 200px;
+}
+/* responsive */
+@media only screen and (max-width: 650px) {
+  .list {
+    flex-direction: column;
+  }
+}

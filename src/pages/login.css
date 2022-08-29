@@ -1,0 +1,33 @@
+.login-bin {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+.login {
+  position: absolute;
+  z-index: 1200;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btn-login {
+  justify-content: center;
+  font-size: 12px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px !important;
+  margin: 10px 0px 0px 0px;
+}
+.message {
+  font-size: 12px;
+  text-align: center;
+  margin: 5px;
+}
+#basic-addon1:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+}

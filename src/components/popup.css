@@ -1,0 +1,30 @@
+.model {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 1000;
+}
+.popupbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  height: max-content;
+  padding: 40px;
+  width: max-content;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.title {
+  color: green;
+  margin: 10px 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+.popupbox > .btn {
+  cursor: pointer;
+}

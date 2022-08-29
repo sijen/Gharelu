@@ -1,0 +1,41 @@
+.main-bin {
+  padding: 20px 40px;
+}
+.bin {
+  height: max-content;
+  width: max-content;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 2px black;
+  border-radius: 5px;
+  background-color: rgba(220, 186, 255, 0.576);
+}
+.title {
+  font-weight: 700;
+  text-align: center;
+  color: white;
+}
+.details {
+  line-height: 1.2em;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 3.5em;
+  overflow: hidden;
+  width: 250px;
+  padding: 10px 0px;
+  text-align: center;
+  color: white;
+}
+.container {
+  padding: 0;
+}
+/* responsive */
+@media only screen and (max-width: 1200px) {
+  .left,
+  .right {
+    width: 70%;
+    margin: 0px auto;
+  }
+  .lar {
+    flex-direction: column-reverse;
+  }
+}
