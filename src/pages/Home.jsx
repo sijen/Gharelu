@@ -6,12 +6,12 @@ import MainPage from "./MainPage";
 function Home() {
   return (
     <section className="main">
-      <div class="container-fluid">
-        <div class="row lar">
-          <div class="col-4 left">
+      <div className="container-fluid">
+        <div className="row lar">
+          <div className="col-4 left">
             <MainPageLogin />
           </div>
-          <div class="col-8 right">
+          <div className="col-8 right">
             <MainPage />
           </div>
         </div>

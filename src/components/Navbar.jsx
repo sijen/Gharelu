@@ -19,6 +19,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const logoutHandled = () => {
     setDisplay(true);
+    document.querySelector("body").style.overflow = "hidden";
   };
 
   const handleLogin = () => {
@@ -43,7 +44,7 @@ export default function Navbar() {
         </Link>
         <>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -51,7 +52,7 @@ export default function Navbar() {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
 
           <div
@@ -120,25 +121,20 @@ export default function Navbar() {
                       </div>
                     </div>
                     <hr style={{ margin: "2px" }} />
-                    <button
-                      style={{
-                        color: "skyblue",
-                        padding: "0px",
-                        fontWeight: "lighter",
-                      }}
-                      className="btn"
-                      // onClick={}
-                    >
+                    <button className="r" onClick={() => navigate("/update")}>
                       change password
                     </button>
 
                     <button
-                      className=" btn row r justify-content-center"
+                      className=" row r"
                       onClick={() => navigate("/update")}
                     >
                       update
                     </button>
-                    <button className=" btn row r justify-content-center">
+                    <button
+                      className=" row r"
+                      onClick={() => navigate("/addproperty")}
+                    >
                       property
                     </button>
                     <button

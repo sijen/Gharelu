@@ -89,6 +89,9 @@
 .r {
   margin: 0px;
   padding: 0px;
+  border: none;
+  outline: none;
+  background-color: none;
 }
 .profile {
   border-radius: 10px;

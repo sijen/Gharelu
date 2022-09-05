@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 // import "./main.css";
 // import office from "../../Assets/office.png";
-import house from "../assets/houses.png";
-import h1 from "../assets/h1.jpg";
-import h2 from "../assets/h2.jpg";
 import h3 from "../assets/h3.jpg";
-import h4 from "../assets/h4.jpg";
 import Slider from "./Slider";
 import { FaUserTie } from "react-icons/fa";
 import { MdLocationPin } from "react-icons/md";
@@ -27,7 +23,7 @@ const MainPage = () => {
       .then((data) => data.json())
       .then((res) => {
         setProperty(res.RecentPropertie);
-        console.log(property);
+        // console.log("property ", res);
       })
       .catch((err) => console.log("error" + err));
   }, []);
@@ -62,9 +58,11 @@ const MainPage = () => {
               UserFullName,
               UserImage,
               Type,
+              PropertyID,
             } = property;
             return (
               <Card
+                key={PropertyID}
                 Address={Address}
                 Area={Area}
                 AreaUnit={AreaUnit}
@@ -152,8 +150,9 @@ const ImageSlider = ({ baseUrl }) => {
       modules={[Pagination, Autoplay]}
     >
       {slider.map((image) => {
+        const { SliderOrd } = image;
         return (
-          <SwiperSlide className="swiper-slide main-slide">
+          <SwiperSlide className="swiper-slide main-slide" key={SliderOrd}>
             <img src={image.SliderUrl} alt="" className="img" />
           </SwiperSlide>
         );

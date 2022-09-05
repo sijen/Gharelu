@@ -186,7 +186,7 @@ const Register = ({ setDisplayLogin, setSignupVisible }) => {
             <div className="col-12" style={{ textAlign: "center" }}>
               <button
                 type="submit"
-                class="btn btn-danger mb-3 "
+                className="btn btn-danger mb-3 "
                 style={{ width: "max-content", textAlign: "center" }}
               >
                 Register

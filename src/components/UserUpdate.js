@@ -1,12 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import BaseUrlContext from "../contextApi/BaseUrlContext";
 import ProfileContext from "../contextApi/ProfileContext";
+import LoginContext from "../contextApi/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 import { BiUserCircle } from "react-icons/bi";
 
 import "./userupdate.css";
 
 const UserUpdate = () => {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useContext(LoginContext);
   const { baseUrl } = useContext(BaseUrlContext);
   const {
     firstname,
@@ -32,36 +36,8 @@ const UserUpdate = () => {
     image,
     setImage,
   } = useContext(ProfileContext);
-  useEffect(() => {
-    fetch(`${baseUrl}/api/user-profile`, {
-      method: "POST",
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        UserID: uid,
-        FirstName: firstname,
-        LastName: lastname,
-        Email: email,
-        Image: image,
-        ImageName: "",
-        Contact: contact,
-        Address: address,
-        District: 1,
-        Bio: bio,
-        Latitude: lat,
-        Longitude: long,
-        WorkStatus: 2,
-      }),
-    })
-      .then((data) => data.json())
-      .then((res) => {
-        console.log("update called first time");
-        console.log(res);
-      })
-      .catch((err) => console.log("error" + err));
-  }, []);
+  useEffect(() => (isLoggedIn ? null : navigate("/")), []);
+
   const updateHandled = () => {
     return fetch(`${baseUrl}/api/user-profile`, {
       method: "POST",
@@ -74,7 +50,7 @@ const UserUpdate = () => {
         FirstName: firstname,
         LastName: lastname,
         Email: email,
-        Image: image,
+        Image: "",
         ImageName: "",
         Contact: contact,
         Address: address,
@@ -87,7 +63,7 @@ const UserUpdate = () => {
     })
       .then((data) => data.json())
       .then((res) => {
-        console.log("updated");
+        console.log("updated", res);
       })
       .catch((err) => console.log("error" + err));
   };
@@ -103,7 +79,7 @@ const UserUpdate = () => {
               borderRadius: "50%",
             }}
           />
-          <input type="file" class="custom-file-input" />
+          <input type="file" className="custom-file-input" />
         </div>
         <div className="row">
           <div className="col-6 px-3">

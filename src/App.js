@@ -12,6 +12,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import { LoginProvider } from "./contextApi/LoginContext";
 import { BaseUrlProvider } from "./contextApi/BaseUrlContext";
 import { ProfileProvider } from "./contextApi/ProfileContext";
+import AddProperty from "./pages/AddProperty";
 export default function App() {
   return (
     <LoginProvider>
@@ -25,6 +26,7 @@ export default function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/update" element={<UserUpdate />} />
+              <Route path="/addproperty" element={<AddProperty />} />
             </Route>
 
             <Route

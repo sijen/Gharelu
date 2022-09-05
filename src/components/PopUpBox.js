@@ -11,12 +11,11 @@ const PopUpBox = ({ display, setDisplay }) => {
     setIsLoggedIn(false);
     setDisplay(false);
     navigate("/");
+    document.querySelector("body").style.overflow = "auto";
   };
   const noPressed = () => {
     setDisplay(false);
-  };
-  const cancelPressed = () => {
-    setDisplay(false);
+    document.querySelector("body").style.overflow = "auto";
   };
   return (
     display && (
