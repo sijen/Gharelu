@@ -35,7 +35,14 @@ export default function Navbar() {
     $("#close").click(function () {
       $("#profile").addClass("d-none").removeClass("d-block");
     });
+    $(".bucket").click(function () {
+      console.log("click bucket");
+      $("#profile").addClass("d-none").removeClass("d-block");
+    });
   });
+  const getValue = localStorage.getItem("value");
+  // const val = JSON.parse(getValue);
+  console.log("getValue", getValue);
   return (
     <>
       <nav className="navbar navbar-expand-lg ">
@@ -86,14 +93,16 @@ export default function Navbar() {
                 </NavLink>
               </li>
 
-              {isLoggedIn ? (
+              {isLoggedIn || getValue ? (
                 <>
+                  <li style={{ marginRight: "5px" }}>
+                    <span style={{ fontSize: "12px" }}>{getValue}</span>
+                  </li>
                   <li>
                     <BiUserCircle
                       style={{
-                        height: "40px",
-                        width: "40px",
-                        color: "skyblue",
+                        height: "20px",
+                        width: "20px",
                       }}
                       id="user"
                     />
@@ -107,40 +116,44 @@ export default function Navbar() {
                         height: "max-content",
                         width: "max-content",
                         cursor: "pointer",
+                        fontSize: "16px",
                       }}
                       id="close"
                     >
                       x
                     </span>
-                    <div className="row r profile ">
+                    {/* <div className="row r profile ">
                       <div className="col-2">
                         <BiUserCircle style={{ width: "max-content" }} />
                       </div>
                       <div className="col-10 ">
                         <span> {`${firstname} ${lastname}`}</span>
                       </div>
-                    </div>
-                    <hr style={{ margin: "2px" }} />
-                    <button className="r" onClick={() => navigate("/update")}>
-                      change password
-                    </button>
-
+                    </div> */}
+                    {/* <hr style={{ margin: "2px" }} /> */}
                     <button
-                      className=" row r"
-                      onClick={() => navigate("/update")}
-                    >
-                      update
-                    </button>
-                    <button
-                      className=" row r"
+                      className=" bucket"
                       onClick={() => navigate("/addproperty")}
                     >
                       property
                     </button>
                     <button
+                      className="bucket"
+                      onClick={() => navigate("/update")}
+                    >
+                      change password
+                    </button>
+
+                    <button
+                      className=" bucket"
+                      onClick={() => navigate("/update")}
+                    >
+                      update
+                    </button>
+                    <button
                       onClick={logoutHandled}
                       style={{ cursor: "pointer" }}
-                      className="btn btn-danger row r justify-content-center"
+                      className=" bucket logout"
                     >
                       logout
                     </button>

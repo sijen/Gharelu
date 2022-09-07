@@ -4,4 +4,58 @@
 }
 .mainaddproperty {
   width: 500px;
+  box-shadow: 0px 0px 2px gray;
+  padding: 15px 30px;
+  border-radius: 3px;
+}
+.ImagePreview {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.file-in {
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+.close-icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: "white";
+  z-index: 123;
+}
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  position: relative;
+  padding: 0 0.5rem;
+  width: max-content;
+}
+label > span {
+  color: #918888;
+  font-size: 14px;
+}
+
+label:hover label > span {
+  color: blue;
+}
+input[type="radio"]:checked + label {
+  background: blue;
+  border-radius: 10px;
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+input[type="radio"]:checked + label > span {
+  color: #fff;
 }

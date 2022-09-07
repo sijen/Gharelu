@@ -32,11 +32,10 @@ const UserUpdate = () => {
     bio,
     setBio,
     uid,
-    setUid,
-    image,
-    setImage,
   } = useContext(ProfileContext);
-  useEffect(() => (isLoggedIn ? null : navigate("/")), []);
+
+  const getValue = localStorage.getItem("value");
+  useEffect(() => (getValue ? undefined : navigate("/")), []);
 
   const updateHandled = () => {
     return fetch(`${baseUrl}/api/user-profile`, {

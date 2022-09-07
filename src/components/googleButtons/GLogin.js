@@ -82,6 +82,8 @@ function GLogin({ setDisplayLogin }) {
             setImage(info.Image);
             setEmail(info.Email);
             setDisplayLogin(false);
+            localStorage.setItem("value", res.LoginOutputs[0].FullName);
+            localStorage.setItem("uid", info.UID);
             document.querySelector("body").style.overflow = "scroll";
           }, 100);
         } else if (username === undefined) {

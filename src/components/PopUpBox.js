@@ -11,6 +11,8 @@ const PopUpBox = ({ display, setDisplay }) => {
     setIsLoggedIn(false);
     setDisplay(false);
     navigate("/");
+    localStorage.setItem("value", "");
+    localStorage.setItem("uid", "");
     document.querySelector("body").style.overflow = "auto";
   };
   const noPressed = () => {

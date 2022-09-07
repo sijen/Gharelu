@@ -67,10 +67,12 @@ const UserLogin = ({ displayLogin, setDisplayLogin, setSignupVisible }) => {
     setFirstname,
     setLastname,
     setContact,
+    contact,
     setAddress,
     setDistrict,
     setLong,
     setLat,
+    uid,
     setUid,
     setBio,
     setImage,
@@ -108,7 +110,7 @@ const UserLogin = ({ displayLogin, setDisplayLogin, setSignupVisible }) => {
     })
       .then((data) => data.json())
       .then((res) => {
-        console.log(res);
+        console.log("response", res);
         setError(res.Message);
         const response = res.LoginOutputs;
         // console.log(response[0].FullName);
@@ -117,7 +119,6 @@ const UserLogin = ({ displayLogin, setDisplayLogin, setSignupVisible }) => {
           setIsLoggedIn(!isLoggedIn);
           setTimeout(() => {
             //for full name and lastname index 0 is first name and 1 is last name
-
             let name = res.LoginOutputs[0].FullName;
             const myArray = name.split(" ");
             console.log(myArray[0]);
@@ -137,6 +138,11 @@ const UserLogin = ({ displayLogin, setDisplayLogin, setSignupVisible }) => {
             setImage(info.Image);
             setEmail(info.Email);
             setProfileName(res.LoginOutputs[0].FullName);
+            console.log("main", res.LoginOutputs[0].FullName);
+            localStorage.setItem("value", res.LoginOutputs[0].FullName);
+            localStorage.setItem("uid", info.UID);
+            console.log(localStorage.getItem("value"));
+
             navigate("/");
             setDisplayLogin(false);
             document.querySelector("body").style.overflow = "scroll";
