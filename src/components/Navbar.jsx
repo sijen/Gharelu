@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import LoginContext from "../contextApi/LoginContext";
-import ProfileContext from "../contextApi/ProfileContext";
 import PopUpBox from "./PopUpBox";
 // import Logout from "./googleButtons/Logout";
 import Logo from "../logo.png";
@@ -10,10 +9,10 @@ import Login from "../pages/Login";
 import { BiUserCircle } from "react-icons/bi";
 import $ from "jquery";
 import { useNavigate } from "react-router-dom";
+import Alerts from "./Alerts";
 
 export default function Navbar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
-  const { firstname, lastname } = useContext(ProfileContext);
   const [displayLogin, setDisplayLogin] = useState(false);
   const [display, setDisplay] = useState(false);
   const navigate = useNavigate();
@@ -45,6 +44,7 @@ export default function Navbar() {
   console.log("getValue", getValue);
   return (
     <>
+      <Alerts message="success" alert="success" />;
       <nav className="navbar navbar-expand-lg ">
         <Link to="/" className="nav-link ">
           <img src={Logo} alt="logo" className="logo" />
