@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import BaseUrlContext from "../contextApi/BaseUrlContext";
-import ProfileContext from "../contextApi/ProfileContext";
 import LoginContext from "../contextApi/LoginContext";
+import ProfileContext from "../contextApi/ProfileContext";
 import { AiOutlinePlus } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,7 @@ import "./addproperty.css";
 const AddProperty = () => {
   const navigate = useNavigate();
   const { baseUrl } = useContext(BaseUrlContext);
+  const { showAlert } = useContext(ProfileContext);
   const uid = localStorage.getItem("uid"); //for user identification
   const { isLoggedIn } = useContext(LoginContext);
 
@@ -80,11 +81,11 @@ const AddProperty = () => {
         type
       )
     ) {
-      alert("you must enter all the highlighgted fields");
+      // alert("you must enter all the highlighgted fields");
       $(function () {
-        $(".form-control").css("border", "1px solid red");
-        $(".form-select").css("border", "1px solid red");
-        $("#picture").css("border", "1px solid red");
+        $(".form-control").addClass("errorControl");
+        $(".form-select").addClass("errorControl");
+        $("#picture").addClass("errorControl");
       });
     } else {
       $(function () {
@@ -92,8 +93,14 @@ const AddProperty = () => {
         $(".form-select").css("border", "1px solid black");
         $("#picture").css("border", "1px solid black");
       });
+      var inputs = document.getElementsByTagName("input");
+      for (var i = 0; i < inputs.length; i++) {
+        var this_input = inputs[i];
+        if (this_input.type === "radio") {
+          this_input.style.border = "1px solid red";
+        }
+      }
     }
-    console.log("");
     return fetch(`${baseUrl}/api/add-property`, {
       method: "POST",
       headers: {
@@ -149,8 +156,33 @@ const AddProperty = () => {
       .then((res) => {
         console.log(res);
         if (res.Message === "Success") {
-          alert("added successful");
+          // alert("added successful");
           setIsUploaded(false);
+          setImageName("");
+          setTitle("");
+          setDes("");
+          setPurpose("");
+          setCategory("");
+          setPrice("");
+          setPricePer("");
+          setAddress("");
+          setState("");
+          setDistrict("");
+          setCity("");
+          setArea("");
+          setAreaUnit("");
+          setType("");
+          showAlert("property added!", "success");
+          // var div = document.getElementsByTagName("div");
+          var inputs = document.getElementsByTagName("input");
+          for (var i = 0; i < inputs.length; i++) {
+            var this_input = inputs[i];
+            if (this_input.type === "radio") {
+              this_input.checked = false;
+            }
+          }
+        } else {
+          showAlert("you must not leave any field empty", "danger");
         }
       })
       .catch((err) => console.log("error", err));
@@ -227,7 +259,7 @@ const AddProperty = () => {
             ) : (
               <div className="ImagePreview">
                 <label
-                  htmlhtmlFor="upload-input"
+                  htmlhtmlfor="upload-input"
                   id="picture"
                   className="p-0"
                   style={{
@@ -259,7 +291,7 @@ const AddProperty = () => {
           </div>
           <div className="col pe-0">
             <div className="row px-3">
-              <label className="p-0">Title</label>
+              <label className="p-0">Title *</label>
               <input
                 placeholder="title"
                 className="form-control"
@@ -269,7 +301,7 @@ const AddProperty = () => {
               />
             </div>
             <div className="row px-3">
-              <label className="p-0">Description</label>
+              <label className="p-0">Description *</label>
               <textarea
                 placeholder="Description"
                 row="15"
@@ -283,7 +315,7 @@ const AddProperty = () => {
 
         <div className="row px-3">
           <div className="col p-0 pe-2">
-            <label className="p-0">address</label>
+            <label className="p-0">address *</label>
             <input
               placeholder="address"
               className=" form-control"
@@ -293,7 +325,7 @@ const AddProperty = () => {
             />
           </div>
           <div className="col p-0 pe-2">
-            <label className="p-0">city</label>
+            <label className="p-0">city *</label>
             <input
               placeholder="address"
               className=" form-control"
@@ -303,7 +335,7 @@ const AddProperty = () => {
             />
           </div>
           <div className="col p-0 pe-2">
-            <label className="p-0">state</label>
+            <label className="p-0">state *</label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -322,7 +354,7 @@ const AddProperty = () => {
             </select>
           </div>
           <div className="col p-0 ">
-            <label className="p-0">district</label>
+            <label className="p-0">district *</label>
             <select
               className="form-select"
               aria-label="Default select example"
@@ -340,7 +372,7 @@ const AddProperty = () => {
         </div>
         <div className="row px-3">
           <div className="col-6 p-0 p-0 pe-2">
-            <label className="p-0 ">price</label>
+            <label className="p-0 ">price *</label>
             <input
               placeholder="price"
               className=" form-control"
@@ -352,7 +384,7 @@ const AddProperty = () => {
             />
           </div>
           <div className="col-6 p-0 p-0">
-            <label className="p-0">price per</label>
+            <label className="p-0">price per *</label>
             {/* <input
               placeholder="district"
               className=" form-control"
@@ -375,7 +407,7 @@ const AddProperty = () => {
         </div>
         <div className="row px-3">
           <div className="col-6 p-0 p-0 pe-2 ">
-            <label className="p-0">area</label>
+            <label className="p-0">area *</label>
             <input
               placeholder="area"
               className=" form-control"
@@ -387,7 +419,7 @@ const AddProperty = () => {
             />
           </div>
           <div className="col-6 p-0 p-0 ">
-            <label className="p-0">area unit</label>
+            <label className="p-0">area unit *</label>
             {/* <input
               placeholder="area unit"
               className=" form-control"
@@ -415,7 +447,7 @@ const AddProperty = () => {
           </div>
         </div>
         <div className="row px-3 p-0">
-          <label className="p-0">Category</label>
+          <label className="p-0">Category *</label>
         </div>
         <div className=" px-3 p-0" style={{ height: "34px" }}>
           <input
@@ -493,10 +525,10 @@ const AddProperty = () => {
         </div>
         <div className="row px-3 p-0 ">
           <div className="col-6 p-0">
-            <label className="p-0">Purpose</label>
+            <label className="p-0">Purpose *</label>
           </div>
           <div className="col-6 p-0">
-            <label className="p-0">type</label>
+            <label className="p-0">type *</label>
           </div>
         </div>
         <div className="row px-3 p-0 mb-4 " style={{ height: "34px" }}>

@@ -1,29 +1,54 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import ProfileContext from "../contextApi/ProfileContext";
 import $ from "jquery";
-
+// import "../index.css";
 const Alerts = (props) => {
-  useEffect(() => {
-    $(function () {
-      $(".alert").fadeOut(1000);
-    });
-  }, []);
-  const { alert = "danger", message } = props;
+  const { setAlert } = useContext(ProfileContext);
+  $(function () {
+    // $(".close").click(function () {
+    $(".alert").fadeIn();
+    $(".alert").fadeOut(3000);
+    console.log("asdashjdajshdjaksdh");
+    // setInterval(() => {
+    //   setAlert({
+    //     msg: "",
+    //     type: "",
+    //   });
+    // }, 3000);
+    // });
+  });
+
   return (
-    <div
-      class={`alert alert-${alert} px-1 py-2`}
-      role="alert"
-      style={{
-        width: "10%",
-        textAlign: "center",
-        position: "absolute",
-        top: 5,
-        left: "50%",
-        fontWeight: "bold",
-        zIndex: 123456,
-      }}
-    >
-      {message}
-    </div>
+    props.alert.msg && (
+      <div
+        className={`alert alert-${props.alert.type} `}
+        role="alert"
+        style={{
+          textAlign: "center",
+          position: "fixed",
+          bottom: 5,
+          right: "5%",
+          zIndex: 123456,
+        }}
+      >
+        <strong>{props.alert.msg}</strong>
+      </div>
+    )
+
+    // <div
+    //   className={`alert alert-${type}  fade show`}
+    //   role="alert"
+    //   style={{
+    //     position: "fixed",
+    //     top: 5,
+    //     left: 0,
+    //     zIndex: 123456,
+    //     left: "50%",
+    //     textAlign: "center",
+    //   }}
+    // >
+    //   <strong style={{ textTransform: "capitalize" }}>{type}</strong> {message}
+    // </div>
   );
 };
 

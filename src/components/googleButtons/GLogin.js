@@ -27,6 +27,7 @@ function GLogin({ setDisplayLogin }) {
     setBio,
     setImage,
     setEmail,
+    showAlert,
   } = useContext(ProfileContext);
   const loginHandler = (res) => {
     console.log(res.profileObj);
@@ -65,10 +66,10 @@ function GLogin({ setDisplayLogin }) {
             navigate("/");
             let name = res.LoginOutputs[0].FullName;
             const myArray = name.split(" ");
-            console.log(myArray[0]);
+            // console.log(myArray[0]);
             setFirstname(myArray[0]);
             setLastname(myArray[1]);
-            console.log("firstname", firstname);
+            // console.log("firstname", firstname);
 
             let info = res.LoginOutputs[0];
             //setting value to use in update user page
@@ -86,6 +87,7 @@ function GLogin({ setDisplayLogin }) {
             localStorage.setItem("uid", info.UID);
             document.querySelector("body").style.overflow = "scroll";
           }, 100);
+          showAlert("logged in successfull", "success");
         } else if (username === undefined) {
           alert("you should fill all the box");
         }

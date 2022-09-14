@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import LoginContext from "../contextApi/LoginContext";
+import ProfileContext from "../contextApi/ProfileContext";
 import PopUpBox from "./PopUpBox";
 // import Logout from "./googleButtons/Logout";
 import Logo from "../logo.png";
@@ -9,7 +10,6 @@ import Login from "../pages/Login";
 import { BiUserCircle } from "react-icons/bi";
 import $ from "jquery";
 import { useNavigate } from "react-router-dom";
-import Alerts from "./Alerts";
 
 export default function Navbar() {
   const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
@@ -27,7 +27,7 @@ export default function Navbar() {
   };
   $(function () {
     $("#user").click(function () {
-      console.log("ok");
+      // console.log("ok");
 
       $("#profile").addClass("d-block").removeClass("d-none");
     });
@@ -35,16 +35,15 @@ export default function Navbar() {
       $("#profile").addClass("d-none").removeClass("d-block");
     });
     $(".bucket").click(function () {
-      console.log("click bucket");
+      // console.log("click bucket");
       $("#profile").addClass("d-none").removeClass("d-block");
     });
   });
   const getValue = localStorage.getItem("value");
   // const val = JSON.parse(getValue);
-  console.log("getValue", getValue);
+  // console.log("getValue", getValue);
   return (
     <>
-      <Alerts message="success" alert="success" />;
       <nav className="navbar navbar-expand-lg ">
         <Link to="/" className="nav-link ">
           <img src={Logo} alt="logo" className="logo" />
@@ -133,7 +132,9 @@ export default function Navbar() {
                     {/* <hr style={{ margin: "2px" }} /> */}
                     <button
                       className=" bucket"
-                      onClick={() => navigate("/addproperty")}
+                      onClick={() => {
+                        navigate("/addproperty");
+                      }}
                     >
                       property
                     </button>

@@ -77,6 +77,8 @@ const UserLogin = ({ displayLogin, setDisplayLogin, setSignupVisible }) => {
     setBio,
     setImage,
     setEmail,
+    alert,
+    showAlert,
   } = useContext(ProfileContext);
   const classes = useStyles();
   const [username, setUserName] = useState();
@@ -143,12 +145,15 @@ const UserLogin = ({ displayLogin, setDisplayLogin, setSignupVisible }) => {
             localStorage.setItem("uid", info.UID);
             console.log(localStorage.getItem("value"));
 
+            showAlert("logged in successfull", "success");
+
             navigate("/");
             setDisplayLogin(false);
             document.querySelector("body").style.overflow = "scroll";
           }, 100);
         } else if (username === undefined || password === undefined) {
           setError("you should fill all the box");
+          showAlert("you should fill all the box", "danger");
         }
       })
       .catch((err) => console.log("error" + err));

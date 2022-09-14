@@ -12,6 +12,15 @@ export function ProfileProvider(props) {
   const [uid, setUid] = useState();
   const [email, setEmail] = useState();
   const [image, setImage] = useState();
+
+  // <------------------alert-------------->
+  const [alert, setAlert] = useState({});
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+  };
   return (
     <ProfileContext.Provider
       value={{
@@ -37,6 +46,9 @@ export function ProfileProvider(props) {
         setImage,
         email,
         setEmail,
+        alert,
+        setAlert,
+        showAlert,
       }}
     >
       {props.children}

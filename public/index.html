@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
     />
+    <link rel="stylesheet" href="index.css" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -28,26 +29,110 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Recipe App</title>
+    <title>Gharelu App</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
     />
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <ul class="list-unstyled list-inline ct-topbar__list">
+      <li class="ct-language">
+        Language <i class="fa fa-arrow-down"></i>
+        <ul class="list-unstyled ct-language__dropdown">
+          <li class="img_text">
+            <a
+              href="#googtrans(en|en)"
+              class="lang-en lang-select"
+              data-lang="en"
+              ><img
+                src="./english.jpg"
+                alt="ENGLISH"
+                class="lang-img"
+              />ENGLISH</a
+            >
+          </li>
+          <li class="img_text">
+            <a
+              href="#googtrans(en|ne)"
+              class="lang-es lang-select"
+              data-lang="ne"
+              ><img src="./nepal.png" alt="NEPALI" class="lang-img" />NEPALI</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.slim.js"
+      integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT,
+          },
+          "google_translate_element"
+        );
+      }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      function triggerHtmlEvent(element, eventName) {
+        var event;
+        if (document.createEvent) {
+          event = document.createEvent("HTMLEvents");
+          event.initEvent(eventName, true, true);
+          element.dispatchEvent(event);
+        } else {
+          event = document.createEventObject();
+          event.eventType = eventName;
+          element.fireEvent("on" + event.eventType, event);
+        }
+      }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      jQuery(".lang-select").click(function () {
+        var theLang = jQuery(this).attr("data-lang");
+        jQuery(".goog-te-combo").val(theLang);
+
+        //alert(jQuery(this).attr('href'));
+        window.location = jQuery(this).attr("href");
+        location.reload();
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.slim.js"
+      integrity="sha256-tXm+sa1uzsbFnbXt8GJqsgi2Tw+m4BLGDof6eUPjbtk="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,16 +1,19 @@
 import React, { useContext, useState } from "react";
 import Button from "@material-ui/core/Button";
 import LoginContext from "../contextApi/LoginContext";
+import ProfileContext from "../contextApi/ProfileContext";
 import "./popup.css";
 import { useNavigate } from "react-router";
 
 const PopUpBox = ({ display, setDisplay }) => {
   const { setIsLoggedIn } = useContext(LoginContext);
+  const { alert, showAlert } = useContext(ProfileContext);
   const navigate = useNavigate();
   const yesPressed = () => {
     setIsLoggedIn(false);
     setDisplay(false);
     navigate("/");
+    showAlert("logged out successfull", "danger");
     localStorage.setItem("value", "");
     localStorage.setItem("uid", "");
     document.querySelector("body").style.overflow = "auto";
