@@ -44,7 +44,7 @@ export default function Navbar() {
   // console.log("getValue", getValue);
   return (
     <>
-      <nav className="navbar navbar-expand-lg ">
+      <nav className="navbar navbar-expand-lg m-0">
         <Link to="/" className="nav-link ">
           <img src={Logo} alt="logo" className="logo" />
         </Link>
@@ -65,7 +65,7 @@ export default function Navbar() {
             className="collapse navbar-collapse justify-content-end"
             id="navbarSupportedContent"
           >
-            <ul className="list  ">
+            <ul className="list justify-content-end ">
               <li className="nav-item">
                 <NavLink to="/" className="listItem  nav-link ">
                   Home

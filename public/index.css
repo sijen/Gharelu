@@ -70,10 +70,10 @@ body {
 }
 .ct-topbar__list {
   position: fixed;
-  top: 10px;
+  top: 90px;
   left: 20px;
 }
-/* do change in this list-unstyled to position the language  */
+/* do change in this ct-topbar__list to position the language  */
 
 .lang-img {
   height: 20px;

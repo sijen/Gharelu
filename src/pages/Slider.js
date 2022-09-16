@@ -10,7 +10,7 @@ SwiperCore.use([Navigation]);
 
 export default function App() {
   return (
-    <div className="container">
+    <div>
       <Swiper
         navigation={true}
         centeredSlides={true}

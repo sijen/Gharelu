@@ -27,7 +27,7 @@ const MainPageLogin = () => {
         Search
       </label>
       <input type="search" className="form-control" />
-      <div className="row pe-0">
+      <div className="row px-3">
         <div className="col-sm">
           <label>Address</label>
           <input type="text" className="form-control" />
@@ -37,7 +37,7 @@ const MainPageLogin = () => {
           <input type="text" className="form-control" />
         </div>
       </div>
-      <div className="row pe-0">
+      <div className="row px-3">
         <div className="col-sm">
           <label>State</label>
           <input type="text" className="form-control" />
@@ -47,7 +47,7 @@ const MainPageLogin = () => {
           <input type="text" className="form-control" />
         </div>
       </div>
-      <div className="row pe-0">
+      <div className="row px-3">
         <div className="col-sm">
           <label>Min Price</label>
           <input type="number" className="form-control" />
@@ -57,7 +57,7 @@ const MainPageLogin = () => {
           <input type="number" className="form-control" />
         </div>
       </div>
-      <div className="row pe-0">
+      <div className="row px-3">
         <div className="col-sm">
           <label>Min Area</label>
           <input type="number" className="form-control" />
@@ -91,7 +91,7 @@ const MainPageLogin = () => {
           Office
         </button>
       </div>
-      <div className="search-below">
+      <div className="search-below px-1">
         <span
           className="arrowback" //onClick={props.change}
         >
