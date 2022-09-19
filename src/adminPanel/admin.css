@@ -1,6 +1,10 @@
 :root {
   --background: #004aad;
 }
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,900&display=swap");
+* {
+  font-family: "Raleway", sans-serif;
+}
 .navbar-ii {
   position: sticky !important;
   top: 0px;
@@ -56,7 +60,7 @@
 }
 .sidenav {
   position: sticky;
-  top: 80px;
+  top: 70px;
   left: 0px;
   display: flex;
   flex-direction: column;
@@ -66,7 +70,7 @@
   /* background-color: var(--background); */
 }
 .icon_box {
-  height: 60px;
+  height: 57px;
   width: 80px;
   align-items: center;
   display: flex;

@@ -1,6 +1,9 @@
 import pricetag from "../assets/icons/pricetag.png";
 import screen from "../assets/icons/screen.png";
 import store from "../assets/icons/store.png";
+import phone from "../assets/icons/phone.png";
+import joined from "../assets/icons/joined.png";
+import locationMarker from "../assets/icons/location-marker.png";
 
 import { LineChart } from "./component/LineChart";
 import PieChart from "./component/PieChart";
@@ -36,15 +39,24 @@ const RecntLine = () => {
       <h2>Jhon smith</h2>
       <div>
         <div>2 aug, 2022 </div>
-        <span>Joined </span>
+        <span>
+          <img src={joined} alt="no image" />
+          Joined
+        </span>
       </div>
       <div>
         <div>9876124356 </div>
-        <span>Phone No. </span>
+        <span>
+          <img src={phone} alt="no image" />
+          Phone No.
+        </span>
       </div>
       <div>
         <div>kathmandu,Nepal</div>
-        <span>location </span>
+        <span>
+          <img src={locationMarker} alt="no image" />
+          location
+        </span>
       </div>
       <div className="btn-group">
         <button className="btn btn-outline-secondary">options</button>

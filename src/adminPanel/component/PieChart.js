@@ -16,6 +16,7 @@ const data = {
 const PieChart = () => {
   return (
     <div className="col-4 chartbox">
+      <h2 className="charttitlebox">TOP CATEGORY</h2>
       <Pie data={data} />
     </div>
   );

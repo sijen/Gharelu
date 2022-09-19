@@ -1,6 +1,8 @@
 :root {
   --border: #d3d3d3;
+  --text: #6d6d6d;
 }
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;300;500;700&display=swap");
 .box {
   width: 250px;
   border: 1px solid var(--border);
@@ -10,6 +12,7 @@
 .box > h2 {
   margin: 0px;
   text-transform: capitalize;
+  font-weight: bold;
 }
 .lwrbox {
   display: flex;
@@ -31,20 +34,47 @@
 .chartbox {
   border: 1px solid #d3d3d3;
   border-radius: 10px;
+  padding: 10px;
+}
+.chartbox:nth-child(1) {
+  margin-right: 40px;
 }
 .charts {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .recent,
 .charts {
+  font-family: "Oswald", sans-serif;
   padding: 0px 60px;
+}
+.charttitlebox {
+  display: flex;
+  width: 100%;
+  padding: 20px 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.charttitlebox > img {
+  height: 30px;
+}
+.charttitlebox,
+.charttitlebox > h1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+}
+.recent {
+  margin-top: 20px;
 }
 .recent > h1 {
   margin: 0px;
   text-transform: capitalize;
+  font-family: "Oswald", sans-serif;
+  padding-bottom: 20px;
 }
 .recentTable {
+  font-family: "Oswald", sans-serif;
+
   padding: 20px 40px;
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -62,7 +92,21 @@
   border-style: solid;
   border-image: linear-gradient(to right, var(--border), white) 100% 1;
 }
+.recentLine > div {
+  color: var(--text);
+  font-family: "Oswald", sans-serif;
+}
+.recentLine > div > span > img {
+  margin-right: 5px;
+}
+.recentLine > div > div {
+  font-family: "Oswald", sans-serif;
+  font-weight: lighter;
+}
 .recentLine > h2 {
   margin: 0px;
   text-transform: capitalize;
+  color: var(--text);
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
 }
