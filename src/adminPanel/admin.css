@@ -1,0 +1,91 @@
+:root {
+  --background: #004aad;
+}
+.navbar-ii {
+  position: sticky !important;
+  top: 0px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  font-family: "Calibri";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  background: var(--background);
+  border-radius: 0px;
+  margin-left: 60px;
+}
+.navbar-ii ::before {
+  display: none;
+}
+.navbar-ii ::after {
+  display: none;
+}
+.nav-left {
+  display: flex;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: black;
+  bottom: -5px;
+  left: 0;
+  right: 10px;
+}
+.logo {
+  height: 50px;
+  margin-left: 10px;
+}
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0px;
+}
+.list li {
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+
+.icon {
+  width: 30px;
+}
+.sidenav {
+  position: sticky;
+  top: 80px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  /* width: 60px; */
+  padding: 0px;
+  height: 100%;
+  /* background-color: var(--background); */
+}
+.icon_box {
+  height: 60px;
+  width: 80px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+  cursor: pointer;
+}
+.name {
+  font-size: 16px;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+.position {
+  text-transform: capitalize;
+  font-size: 12px;
+  font-weight: lighter;
+  color: white;
+}
+.container-fluid {
+  padding: 0px;
+}

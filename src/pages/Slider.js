@@ -1,14 +1,30 @@
+import React, { useEffect, useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FaPaintBrush, FaChair } from "react-icons/fa";
-import { GiElectric } from "react-icons/gi";
-import { MdPlumbing } from "react-icons/md";
 
 import SwiperCore, { Navigation } from "swiper/core";
 import "./slider.css";
 
+import BaseUrlContext from "../contextApi/BaseUrlContext";
+
 SwiperCore.use([Navigation]);
 
 export default function App() {
+  const { baseUrl } = useContext(BaseUrlContext);
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    getServices();
+  }, []);
+  const getServices = () => {
+    fetch(`${baseUrl}/api/all-service`, {
+      method: "GET",
+    })
+      .then((data) => data.json())
+      .then((res) => {
+        setServices(res.Service);
+        console.log("res ", services);
+      })
+      .catch((err) => console.log("error" + err));
+  };
   return (
     <div>
       <Swiper
@@ -36,54 +52,23 @@ export default function App() {
         }}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <div className="main-service-container">
-            <div className="home-icon">
-              <FaPaintBrush className="brush" />
-            </div>
-            <div className="service-name-icons">Painter</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="main-service-container">
-            <div className="home-icon">
-              <GiElectric className="brush" />
-            </div>
-            <div className="service-name-icons">Electrician</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="main-service-container">
-            <div className="home-icon">
-              <MdPlumbing className="brush" />
-            </div>
-            <div className="service-name-icons">Plumber</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="main-service-container">
-            <div className="home-icon">
-              <FaChair className="brush" />
-            </div>
-            <div className="service-name-icons">Furniture</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="main-service-container">
-            <div className="home-icon">
-              <FaPaintBrush className="brush" />
-            </div>
-            <div className="service-name-icons">Painter</div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="main-service-container">
-            <div className="home-icon">
-              <FaChair className="brush" />
-            </div>
-            <div className="service-name-icons">Furniture</div>
-          </div>
-        </SwiperSlide>
+        {services.map((service, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <div className="main-service-container">
+                <div className="home-icon">
+                  {/* <FaPaintBrush className="brush" /> */}
+                  <img
+                    src={service.Image}
+                    alt="image not found"
+                    className="home-icon"
+                  />
+                </div>
+                <div className="service-name-icons">{service.ServiceName}</div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

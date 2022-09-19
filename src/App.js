@@ -8,6 +8,8 @@ import Contact from "./pages/Contact";
 import Sharedlayout from "./pages/Sharedlayout";
 import UserUpdate from "./components/UserUpdate";
 
+import Admin from "./adminPanel/Admin";
+
 import { Routes, Route, Link } from "react-router-dom";
 import { LoginProvider } from "./contextApi/LoginContext";
 import { BaseUrlProvider } from "./contextApi/BaseUrlContext";
@@ -29,6 +31,7 @@ export default function App() {
               <Route path="/addproperty" element={<AddProperty />} />
             </Route>
 
+            <Route path="/admin" element={<Admin />} />
             <Route
               path="*"
               element={
